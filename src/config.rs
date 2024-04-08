@@ -3,11 +3,7 @@ use crate::driver::DecodeMode;
 #[cfg(feature = "driver")]
 use crate::{
     driver::{
-        retry::Retry,
-        tasks::disposal::DisposalThread,
-        CryptoMode,
-        MixMode,
-        Scheduler,
+        retry::Retry, tasks::disposal::DisposalThread, CryptoMode, MixMode, Scheduler,
         DEFAULT_SCHEDULER,
     },
     input::codecs::*,

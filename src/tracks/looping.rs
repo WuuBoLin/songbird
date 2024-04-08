@@ -29,11 +29,7 @@ mod tests {
         driver::Driver,
         input::File,
         tracks::{PlayMode, Track, TrackState},
-        Config,
-        Event,
-        EventContext,
-        EventHandler,
-        TrackEvent,
+        Config, Event, EventContext, EventHandler, TrackEvent,
     };
     use flume::Sender;
 

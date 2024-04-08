@@ -4,10 +4,7 @@ use flume::{Receiver, Sender};
 
 use crate::{
     tracks::{PlayMode, TrackHandle, TrackState},
-    Event,
-    EventContext,
-    EventHandler,
-    TrackEvent,
+    Event, EventContext, EventHandler, TrackEvent,
 };
 use std::time::Duration;
 
@@ -165,10 +162,12 @@ impl DriverTestHandle {
                 OutputPacket::Empty => eprintln!("pkt: Nothing"),
                 OutputPacket::Rtp(p) => eprintln!("pkt: RTP[{}B]", p.len()),
                 OutputPacket::Raw(OutputMessage::Silent) => eprintln!("pkt: Raw-Silent"),
-                OutputPacket::Raw(OutputMessage::Passthrough(p)) =>
-                    eprintln!("pkt: Raw-Passthrough[{}B]", p.len()),
-                OutputPacket::Raw(OutputMessage::Mixed(p)) =>
-                    eprintln!("pkt: Raw-Mixed[{}B]", p.len()),
+                OutputPacket::Raw(OutputMessage::Passthrough(p)) => {
+                    eprintln!("pkt: Raw-Passthrough[{}B]", p.len())
+                },
+                OutputPacket::Raw(OutputMessage::Mixed(p)) => {
+                    eprintln!("pkt: Raw-Mixed[{}B]", p.len())
+                },
             }
         }
     }

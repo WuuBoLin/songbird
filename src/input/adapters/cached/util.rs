@@ -343,26 +343,36 @@ fn write_out(
     num_chans: usize,
 ) -> usize {
     match source {
-        AudioBufferRef::U8(v) =>
-            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans),
-        AudioBufferRef::U16(v) =>
-            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans),
-        AudioBufferRef::U24(v) =>
-            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans),
-        AudioBufferRef::U32(v) =>
-            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans),
-        AudioBufferRef::S8(v) =>
-            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans),
-        AudioBufferRef::S16(v) =>
-            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans),
-        AudioBufferRef::S24(v) =>
-            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans),
-        AudioBufferRef::S32(v) =>
-            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans),
-        AudioBufferRef::F32(v) =>
-            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans),
-        AudioBufferRef::F64(v) =>
-            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans),
+        AudioBufferRef::U8(v) => {
+            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans)
+        },
+        AudioBufferRef::U16(v) => {
+            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans)
+        },
+        AudioBufferRef::U24(v) => {
+            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans)
+        },
+        AudioBufferRef::U32(v) => {
+            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans)
+        },
+        AudioBufferRef::S8(v) => {
+            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans)
+        },
+        AudioBufferRef::S16(v) => {
+            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans)
+        },
+        AudioBufferRef::S24(v) => {
+            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans)
+        },
+        AudioBufferRef::S32(v) => {
+            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans)
+        },
+        AudioBufferRef::F32(v) => {
+            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans)
+        },
+        AudioBufferRef::F64(v) => {
+            write_symph_buffer(v, target, source_pos, spillover, spill_range, num_chans)
+        },
     }
 }
 

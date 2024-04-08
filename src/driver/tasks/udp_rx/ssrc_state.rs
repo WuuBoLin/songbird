@@ -3,8 +3,7 @@ use crate::{
     constants::*,
     driver::{
         tasks::error::{Error, Result},
-        CryptoMode,
-        DecodeMode,
+        CryptoMode, DecodeMode,
     },
     events::context_data::{RtpData, VoiceData},
     Config,
@@ -17,8 +16,7 @@ use audiopus::{
 };
 use discortp::{
     rtp::{RtpExtensionPacket, RtpPacket},
-    Packet,
-    PacketSize,
+    Packet, PacketSize,
 };
 use std::{convert::TryInto, time::Duration};
 use tokio::time::Instant;

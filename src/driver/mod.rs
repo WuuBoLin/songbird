@@ -31,12 +31,8 @@ pub(crate) use crypto::CryptoState;
 pub use decode_mode::DecodeMode;
 pub use mix_mode::MixMode;
 pub use scheduler::{
-    Config as SchedulerConfig,
-    Error as SchedulerError,
-    LiveStatBlock,
-    Mode as SchedulerMode,
-    Scheduler,
-    DEFAULT_SCHEDULER,
+    Config as SchedulerConfig, Error as SchedulerError, LiveStatBlock, Mode as SchedulerMode,
+    Scheduler, DEFAULT_SCHEDULER,
 };
 #[cfg(test)]
 pub use test_config::*;
@@ -49,10 +45,7 @@ use crate::{
     events::EventData,
     input::Input,
     tracks::{Track, TrackHandle},
-    Config,
-    ConnectionInfo,
-    Event,
-    EventHandler,
+    Config, ConnectionInfo, Event, EventHandler,
 };
 /// Opus encoder bitrate settings.
 pub use audiopus::{self as opus, Bitrate};

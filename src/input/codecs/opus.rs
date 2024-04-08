@@ -1,19 +1,12 @@
 use crate::constants::*;
 use audiopus::{
     coder::{Decoder as AudiopusDecoder, GenericCtl},
-    Channels,
-    Error as OpusError,
-    ErrorCode,
+    Channels, Error as OpusError, ErrorCode,
 };
 use symphonia_core::{
     audio::{AsAudioBufferRef, AudioBuffer, AudioBufferRef, Layout, Signal, SignalSpec},
     codecs::{
-        CodecDescriptor,
-        CodecParameters,
-        Decoder,
-        DecoderOptions,
-        FinalizeResult,
-        CODEC_TYPE_OPUS,
+        CodecDescriptor, CodecParameters, Decoder, DecoderOptions, FinalizeResult, CODEC_TYPE_OPUS,
     },
     errors::{decode_error, Result as SymphResult},
     formats::Packet,

@@ -125,14 +125,16 @@ fn apply_tags(tag_map: HashMap<String, String>, dest: &mut AuxMetadata) {
             "album" => dest.album = Some(v),
             "artist" => dest.artist = Some(v),
             "date" => dest.date = Some(v),
-            "channels" =>
+            "channels" => {
                 if let Ok(chans) = str::parse::<u8>(&v) {
                     dest.channels = Some(chans);
-                },
-            "sample_rate" =>
+                }
+            },
+            "sample_rate" => {
                 if let Ok(samples) = str::parse::<u32>(&v) {
                     dest.sample_rate = Some(samples);
-                },
+                }
+            },
             _ => {},
         }
     }

@@ -196,9 +196,10 @@ impl VoiceUpdate for Shard {
                 sender.command(&cmd)?;
                 Ok(())
             },
-            Shard::Generic(g) =>
+            Shard::Generic(g) => {
                 g.update_voice_state(guild_id, channel_id, self_deaf, self_mute)
-                    .await,
+                    .await
+            },
         }
     }
 }

@@ -3,10 +3,7 @@ use crate::{
     events::CoreContext,
     model::{
         payload::{Heartbeat, Speaking},
-        CloseCode as VoiceCloseCode,
-        Event as GatewayEvent,
-        FromPrimitive,
-        SpeakingState,
+        CloseCode as VoiceCloseCode, Event as GatewayEvent, FromPrimitive, SpeakingState,
     },
     ws::{Error as WsError, WsStream},
     ConnectionInfo,
@@ -242,12 +239,13 @@ pub(crate) async fn runner(mut interconnect: Interconnect, mut aux: AuxNetwork) 
 fn ws_error_is_not_final(err: &WsError) -> bool {
     match err {
         WsError::WsClosed(Some(frame)) => match frame.code {
-            CloseCode::Library(l) =>
+            CloseCode::Library(l) => {
                 if let Some(code) = VoiceCloseCode::from_u16(l) {
                     code.should_resume()
                 } else {
                     true
-                },
+                }
+            },
             _ => true,
         },
         e => {

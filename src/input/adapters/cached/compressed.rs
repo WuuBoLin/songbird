@@ -3,42 +3,25 @@ use crate::{
     constants::*,
     input::{
         codecs::{dca::*, CODEC_REGISTRY, PROBE},
-        AudioStream,
-        Input,
-        LiveInput,
+        AudioStream, Input, LiveInput,
     },
 };
 use audiopus::{
     coder::{Encoder as OpusEncoder, GenericCtl},
-    Application,
-    Bitrate,
-    Channels,
-    Error as OpusError,
-    ErrorCode as OpusErrorCode,
-    SampleRate,
+    Application, Bitrate, Channels, Error as OpusError, ErrorCode as OpusErrorCode, SampleRate,
 };
 use byteorder::{LittleEndian, ReadBytesExt, WriteBytesExt};
 use std::{
     convert::TryInto,
     io::{
-        Cursor,
-        Error as IoError,
-        ErrorKind as IoErrorKind,
-        Read,
-        Result as IoResult,
-        Seek,
+        Cursor, Error as IoError, ErrorKind as IoErrorKind, Read, Result as IoResult, Seek,
         SeekFrom,
     },
     mem,
     sync::atomic::{AtomicUsize, Ordering},
 };
 use streamcatcher::{
-    Config as ScConfig,
-    NeedsBytes,
-    Stateful,
-    Transform,
-    TransformPosition,
-    TxCatcher,
+    Config as ScConfig, NeedsBytes, Stateful, Transform, TransformPosition, TxCatcher,
 };
 use symphonia_core::{
     audio::Channels as SChannels,
@@ -306,26 +289,31 @@ fn apply_meta_to_dca(info: &mut Info, origin: &mut Origin, src_meta: Option<&Met
     if let Some(meta) = src_meta {
         for tag in meta.tags() {
             match tag.std_key {
-                Some(StandardTagKey::Album) =>
+                Some(StandardTagKey::Album) => {
                     if let Value::String(s) = &tag.value {
                         info.album = Some(s.clone());
-                    },
-                Some(StandardTagKey::Artist) =>
+                    }
+                },
+                Some(StandardTagKey::Artist) => {
                     if let Value::String(s) = &tag.value {
                         info.artist = Some(s.clone());
-                    },
-                Some(StandardTagKey::Comment) =>
+                    }
+                },
+                Some(StandardTagKey::Comment) => {
                     if let Value::String(s) = &tag.value {
                         info.comments = Some(s.clone());
-                    },
-                Some(StandardTagKey::Genre) =>
+                    }
+                },
+                Some(StandardTagKey::Genre) => {
                     if let Value::String(s) = &tag.value {
                         info.genre = Some(s.clone());
-                    },
-                Some(StandardTagKey::TrackTitle) =>
+                    }
+                },
+                Some(StandardTagKey::TrackTitle) => {
                     if let Value::String(s) = &tag.value {
                         info.title = Some(s.clone());
-                    },
+                    }
+                },
                 Some(StandardTagKey::Url | StandardTagKey::UrlSource) => {
                     if let Value::String(s) = &tag.value {
                         origin.url = Some(s.clone());

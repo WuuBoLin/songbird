@@ -4,9 +4,7 @@
 use crate::model::id::{GuildId as DriverGuild, UserId as DriverUser};
 #[cfg(feature = "serenity")]
 use serenity::model::id::{
-    ChannelId as SerenityChannel,
-    GuildId as SerenityGuild,
-    UserId as SerenityUser,
+    ChannelId as SerenityChannel, GuildId as SerenityGuild, UserId as SerenityUser,
 };
 use std::{
     fmt::{Display, Formatter, Result as FmtResult},

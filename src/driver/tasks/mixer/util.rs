@@ -10,11 +10,12 @@ pub fn copy_seek_to(pos: &SeekTo) -> SeekTo {
 
 pub fn seek_to_is_zero(pos: &SeekTo) -> bool {
     match *pos {
-        SeekTo::Time { time, .. } =>
+        SeekTo::Time { time, .. } => {
             time == Time {
                 seconds: 0,
                 frac: 0.0,
-            },
+            }
+        },
         SeekTo::TimeStamp { ts, .. } => ts == 0,
     }
 }

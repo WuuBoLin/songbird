@@ -5,13 +5,7 @@ use futures::{future::Either, stream::FuturesUnordered, FutureExt, StreamExt};
 use ringbuf::*;
 use std::{
     io::{
-        Error as IoError,
-        ErrorKind as IoErrorKind,
-        Read,
-        Result as IoResult,
-        Seek,
-        SeekFrom,
-        Write,
+        Error as IoError, ErrorKind as IoErrorKind, Read, Result as IoResult, Seek, SeekFrom, Write,
     },
     sync::{
         atomic::{AtomicBool, Ordering},

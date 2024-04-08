@@ -4,9 +4,7 @@ use byteorder::{NetworkEndian, WriteBytesExt};
 use crypto_secretbox::Tag;
 use crypto_secretbox::{
     aead::{AeadInPlace, Error as CryptoError},
-    Nonce,
-    SecretBox,
-    XSalsa20Poly1305 as Cipher,
+    Nonce, SecretBox, XSalsa20Poly1305 as Cipher,
 };
 use discortp::{rtp::RtpPacket, MutablePacket};
 use rand::Rng;

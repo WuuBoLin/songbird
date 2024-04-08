@@ -66,13 +66,7 @@ mod sources;
 pub mod utils;
 
 pub use self::{
-    adapters::*,
-    audiostream::*,
-    compose::*,
-    error::*,
-    live_input::*,
-    metadata::*,
-    parsed::*,
+    adapters::*, audiostream::*, compose::*, error::*, live_input::*, metadata::*, parsed::*,
     sources::*,
 };
 
@@ -206,8 +200,9 @@ impl Input {
     pub async fn aux_metadata(&mut self) -> Result<AuxMetadata, AuxMetadataError> {
         match self {
             Self::Lazy(ref mut composer) => composer.aux_metadata().await.map_err(Into::into),
-            Self::Live(_, Some(ref mut composer)) =>
-                composer.aux_metadata().await.map_err(Into::into),
+            Self::Live(_, Some(ref mut composer)) => {
+                composer.aux_metadata().await.map_err(Into::into)
+            },
             Self::Live(_, None) => Err(AuxMetadataError::NoCompose),
         }
     }

@@ -29,10 +29,12 @@ impl Display for Error {
         match self {
             Self::Create(c) => f.write_fmt(format_args!("failed to create audio stream: {c}")),
             Self::CreatePanicked => f.write_str("sync thread panicked while creating stream"),
-            Self::Streamcatcher(s) =>
-                f.write_fmt(format_args!("illegal streamcatcher config: {s}")),
-            Self::StreamNotAtStart =>
-                f.write_str("stream cannot have been pre-read/parsed, missing headers"),
+            Self::Streamcatcher(s) => {
+                f.write_fmt(format_args!("illegal streamcatcher config: {s}"))
+            },
+            Self::StreamNotAtStart => {
+                f.write_str("stream cannot have been pre-read/parsed, missing headers")
+            },
         }
     }
 }
@@ -95,12 +97,15 @@ impl Display for CodecCacheError {
             )),
             Self::MetadataTooLarge => f.write_str("track metadata was too large, >= 32kiB"),
             Self::CreatePanicked => f.write_str("sync thread panicked while creating stream"),
-            Self::UnknownChannelCount =>
-                f.write_str("audio stream's channel count could not be determined"),
-            Self::Streamcatcher(s) =>
-                f.write_fmt(format_args!("illegal streamcatcher config: {s}")),
-            Self::StreamNotAtStart =>
-                f.write_str("stream cannot have been pre-read/parsed, missing headers"),
+            Self::UnknownChannelCount => {
+                f.write_str("audio stream's channel count could not be determined")
+            },
+            Self::Streamcatcher(s) => {
+                f.write_fmt(format_args!("illegal streamcatcher config: {s}"))
+            },
+            Self::StreamNotAtStart => {
+                f.write_str("stream cannot have been pre-read/parsed, missing headers")
+            },
         }
     }
 }

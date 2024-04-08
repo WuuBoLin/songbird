@@ -46,8 +46,9 @@ impl Memory {
                 created.map(|v| v.input).map_err(Error::from)
             },
             Input::Live(LiveInput::Raw(a), _rec) => Ok(a.input),
-            Input::Live(LiveInput::Wrapped(a), _rec) =>
-                Ok(Box::new(a.input) as Box<dyn MediaSource>),
+            Input::Live(LiveInput::Wrapped(a), _rec) => {
+                Ok(Box::new(a.input) as Box<dyn MediaSource>)
+            },
             Input::Live(LiveInput::Parsed(_), _) => Err(Error::StreamNotAtStart),
         }?;
 

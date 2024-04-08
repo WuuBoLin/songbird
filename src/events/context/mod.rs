@@ -85,8 +85,9 @@ impl<'a> CoreContext {
             Self::ClientDisconnect(evt) => EventContext::ClientDisconnect(*evt),
             Self::DriverConnect(evt) => EventContext::DriverConnect(ConnectData::from(evt)),
             Self::DriverReconnect(evt) => EventContext::DriverReconnect(ConnectData::from(evt)),
-            Self::DriverDisconnect(evt) =>
-                EventContext::DriverDisconnect(DisconnectData::from(evt)),
+            Self::DriverDisconnect(evt) => {
+                EventContext::DriverDisconnect(DisconnectData::from(evt))
+            },
         }
     }
 }

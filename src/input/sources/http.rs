@@ -1,10 +1,5 @@
 use crate::input::{
-    AsyncAdapterStream,
-    AsyncMediaSource,
-    AudioStream,
-    AudioStreamError,
-    Compose,
-    Input,
+    AsyncAdapterStream, AsyncMediaSource, AudioStream, AudioStreamError, Compose, Input,
 };
 use async_trait::async_trait;
 use futures::TryStreamExt;

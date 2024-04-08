@@ -11,8 +11,7 @@ use tokio_tungstenite::{
         protocol::{CloseFrame, WebSocketConfig as Config},
         Message,
     },
-    MaybeTlsStream,
-    WebSocketStream,
+    MaybeTlsStream, WebSocketStream,
 };
 use tracing::{debug, instrument};
 use url::Url;
@@ -96,14 +95,15 @@ pub(crate) fn convert_ws_message(message: Option<Message>) -> Result<Option<Even
         // simd-json::serde::from_str may leave an &mut str in a non-UTF state on failure.
         // The below is safe as we have taken ownership of the inner `String`, and if
         // failure occurs we forcibly re-validate its contents before logging.
-        Some(Message::Text(mut payload)) =>
+        Some(Message::Text(mut payload)) => {
             (unsafe { crate::json::from_str(payload.as_mut_str()) })
                 .map_err(|e| {
                     let safe_payload = String::from_utf8_lossy(payload.as_bytes());
                     debug!("Unexpected JSON: {e}. Payload: {safe_payload}");
                     e
                 })
-                .ok(),
+                .ok()
+        },
         Some(Message::Binary(bytes)) => {
             return Err(Error::UnexpectedBinaryMessage(bytes));
         },

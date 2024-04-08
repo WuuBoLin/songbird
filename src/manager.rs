@@ -4,9 +4,7 @@ use crate::{
     error::{JoinError, JoinResult},
     id::{ChannelId, GuildId, UserId},
     shards::Sharder,
-    Call,
-    Config,
-    ConnectionInfo,
+    Call, Config, ConnectionInfo,
 };
 #[cfg(feature = "serenity")]
 use async_trait::async_trait;

@@ -59,8 +59,9 @@ impl BlockyTaskPool {
                     });
                 }
             },
-            Input::Live(live, maybe_create) =>
-                self.parse(config, callback, live, maybe_create, seek_time),
+            Input::Live(live, maybe_create) => {
+                self.parse(config, callback, live, maybe_create, seek_time)
+            },
         }
     }
 

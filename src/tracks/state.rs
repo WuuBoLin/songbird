@@ -41,11 +41,7 @@ impl TrackState {
 mod tests {
     use super::*;
     use crate::{
-        constants::test_data::YTDL_TARGET,
-        driver::Driver,
-        input::YoutubeDl,
-        tracks::Track,
-        Config,
+        constants::test_data::YTDL_TARGET, driver::Driver, input::YoutubeDl, tracks::Track, Config,
     };
     use reqwest::Client;
 

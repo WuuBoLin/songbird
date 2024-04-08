@@ -58,10 +58,11 @@ impl FormatReader for RawReader {
         let chans = match n_chans {
             1 => Channels::FRONT_LEFT,
             2 => Channels::FRONT_LEFT | Channels::FRONT_RIGHT,
-            _ =>
+            _ => {
                 return symph_err::decode_error(
                     "rawf32: channel layout is not stereo or mono for fmt_pcm",
-                ),
+                )
+            },
         };
 
         let mut codec_params = CodecParameters::new();
@@ -103,12 +104,13 @@ impl FormatReader for RawReader {
         let track = &self.track;
         let rate = track.codec_params.sample_rate;
         let ts = match to {
-            SeekTo::Time { time, .. } =>
+            SeekTo::Time { time, .. } => {
                 if let Some(rate) = rate {
                     TimeBase::new(1, rate).calc_timestamp(time)
                 } else {
                     return symph_err::seek_error(SeekErrorKind::Unseekable);
-                },
+                }
+            },
             SeekTo::TimeStamp { ts, .. } => ts,
         };
 

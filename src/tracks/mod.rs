@@ -28,15 +28,7 @@ mod state;
 mod view;
 
 pub use self::{
-    action::*,
-    error::*,
-    handle::*,
-    looping::*,
-    mode::*,
-    queue::*,
-    ready::*,
-    state::*,
-    view::*,
+    action::*, error::*, handle::*, looping::*, mode::*, queue::*, ready::*, state::*, view::*,
 };
 pub(crate) use command::*;
 

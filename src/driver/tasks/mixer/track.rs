@@ -242,7 +242,7 @@ impl<'a> InternalTrack {
                     },
                     Ok(MixerInputResultMessage::Seek(parsed, rec, seek_res)) => {
                         match seek_res {
-                            Ok(pos) =>
+                            Ok(pos) => {
                                 if let Some(time_base) = parsed.decoder.codec_params().time_base {
                                     // Update track's position to match the actual timestamp the
                                     // seek landed at.
@@ -282,12 +282,14 @@ impl<'a> InternalTrack {
                                         SymphError::Unsupported("Track had no recorded time base.")
                                             .into(),
                                     ))
-                                },
+                                }
+                            },
                             Err(e) => Err(InputReadyingError::Seeking(e)),
                         }
                     },
-                    Ok(MixerInputResultMessage::CreateErr(e)) =>
-                        Err(InputReadyingError::Creation(e)),
+                    Ok(MixerInputResultMessage::CreateErr(e)) => {
+                        Err(InputReadyingError::Creation(e))
+                    },
                     Ok(MixerInputResultMessage::ParseErr(e)) => Err(InputReadyingError::Parsing(e)),
                     Err(TryRecvError::Disconnected) => Err(InputReadyingError::Dropped),
                     Err(TryRecvError::Empty) => Err(InputReadyingError::Waiting),

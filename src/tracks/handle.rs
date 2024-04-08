@@ -265,11 +265,7 @@ impl<T> TrackCallback<T> {
 mod tests {
     use super::*;
     use crate::{
-        constants::test_data::FILE_WAV_TARGET,
-        driver::Driver,
-        input::File,
-        tracks::Track,
-        Config,
+        constants::test_data::FILE_WAV_TARGET, driver::Driver, input::File, tracks::Track, Config,
     };
 
     #[tokio::test]

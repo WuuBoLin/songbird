@@ -206,12 +206,13 @@ impl FormatReader for DcaReader {
 
         let rate = track.codec_params.sample_rate;
         let ts = match to {
-            SeekTo::Time { time, .. } =>
+            SeekTo::Time { time, .. } => {
                 if let Some(rate) = rate {
                     TimeBase::new(1, rate).calc_timestamp(time)
                 } else {
                     return symph_err::seek_error(SeekErrorKind::Unseekable);
-                },
+                }
+            },
             SeekTo::TimeStamp { ts, .. } => ts,
         };
 

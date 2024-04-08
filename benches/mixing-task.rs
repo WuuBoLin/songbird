@@ -1,13 +1,7 @@
 use std::error::Error;
 
 use criterion::{
-    black_box,
-    criterion_group,
-    criterion_main,
-    BatchSize,
-    Bencher,
-    BenchmarkId,
-    Criterion,
+    black_box, criterion_group, criterion_main, BatchSize, Bencher, BenchmarkId, Criterion,
 };
 use flume::{Receiver, Sender, TryRecvError};
 use songbird::{
@@ -20,14 +14,10 @@ use songbird::{
             task_message::*,
             CryptoState,
         },
-        Bitrate,
-        DummyMixer,
-        Listeners,
-        MockScheduler,
+        Bitrate, DummyMixer, Listeners, MockScheduler,
     },
     input::{cached::Compressed, codecs::*, Input, RawAdapter},
-    tracks,
-    Config,
+    tracks, Config,
 };
 use std::{io::Cursor, net::UdpSocket, sync::Arc};
 use tokio::runtime::{Handle, Runtime};
